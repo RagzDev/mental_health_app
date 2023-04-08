@@ -128,7 +128,7 @@ class _MentalHealthResourcesState extends State<MentalHealthResources> {
                         return AlertDialog(
                           title: Text("Hope you feel better."),
                           content: Text(
-                              "It's okay to feel sad sometimes. Take some time for yourself and do something that makes you happy."),
+                              "It's okay to feel sad sometimes. Take some time for yourself and do something that makes you happy. If this doesn't help, talk to our AI therapist."),
                           actions: <Widget>[
                             TextButton(
                               child: Text("OK"),
@@ -164,12 +164,12 @@ class _MentalHealthResourcesState extends State<MentalHealthResources> {
                         return AlertDialog(
                           title: Text("Control your rage."),
                           content: Text(
-                              "Take a deep breath and try to let go of your anger."),
+                              "Take a deep breath and try to let go of your anger. If you need somebody to talk to, try going to the AI therapist on this app."),
                           actions: <Widget>[
                             TextButton(
                               child: Text("OK."),
                               onPressed: () {
-                                Navigator.of(context).pop();
+                                Navigator.pop(context);
                               },
                             ),
                           ],
@@ -200,7 +200,7 @@ class _MentalHealthResourcesState extends State<MentalHealthResources> {
                         return AlertDialog(
                           title: Text("Feeling stressed!"),
                           content: Text(
-                              "Take a break and do something that relaxes you. You got this!"),
+                              "Take a break and do something that relaxes you. You got this! Try talking to our AI therapist to feel better."),
                           actions: <Widget>[
                             TextButton(
                               child: Text("OK"),
@@ -271,6 +271,40 @@ class _MentalHealthResourcesState extends State<MentalHealthResources> {
                 scrollDirection: Axis.horizontal,
                 padding: EdgeInsets.all(10),
                 children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      // Navigate to hotlines/therapy page
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => HotlinesPage()));
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.red,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.local_phone,
+                          size: 30,
+                          color: Colors.white,
+                        ),
+                        SizedBox(height: 5),
+                        Text(
+                          'Talk to Somebody',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
                   ElevatedButton(
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(
@@ -366,37 +400,6 @@ class _MentalHealthResourcesState extends State<MentalHealthResources> {
                     ),
                   ),
                   SizedBox(width: 10),
-                  ElevatedButton(
-                    onPressed: () {
-                      // Navigate to hotlines/therapy page
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => HotlinesPage()));
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.red,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.local_phone,
-                          size: 30,
-                          color: Colors.white,
-                        ),
-                        SizedBox(height: 5),
-                        Text(
-                          'Hotlines/Therapy',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
                 ],
               ),
             ),

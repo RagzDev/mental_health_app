@@ -16,12 +16,12 @@ class OnboardingPage extends StatelessWidget {
         child: Column(mainAxisAlignment: MainAxisAlignment.end, children: [
           SizedBox(height: 80),
           Text(
-            'BetterBrain',
+            'LiftMeUp',
             style: TextStyle(fontSize: 32.0, fontWeight: FontWeight.bold),
           ),
           SizedBox(height: 20),
           Text(
-            'Your personalised, all-in-one mental health app.',
+            'Mental wellbeing at your fingertips.',
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w600),
           ),
