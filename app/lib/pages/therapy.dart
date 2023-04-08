@@ -16,10 +16,21 @@ class _TherapyAIState extends State<TherapyAI> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Mental Health"),
+        automaticallyImplyLeading: false,
+        title: Text(
+          "AI Therapy",
+          style: TextStyle(
+              fontWeight: FontWeight.bold, color: Colors.black, fontSize: 32.0),
+        ),
+        centerTitle: false,
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
         actions: [
           IconButton(
-            icon: Icon(Icons.delete),
+            icon: Icon(
+              Icons.delete,
+              color: Colors.black,
+            ),
             onPressed: () async {
               var url = Uri.parse('http://127.0.0.1:5000/clear');
               var response = await http.get(url);
@@ -57,7 +68,7 @@ class _TherapyAIState extends State<TherapyAI> {
                   ),
                 ),
                 SizedBox(width: 10),
-                ElevatedButton(
+                IconButton(
                   onPressed: () async {
                     String prompt = _textController.text;
 
@@ -77,10 +88,10 @@ class _TherapyAIState extends State<TherapyAI> {
                     var jsonResponse = json.decode(response.body);
 
                     setState(() {
-                      messages.add('Therapist: ${jsonResponse['reply']}');
+                      messages.add('AI Therapist: ${jsonResponse['reply']}');
                     });
                   },
-                  child: Text('Send'),
+                  icon: Icon(Icons.send),
                 ),
               ],
             ),
